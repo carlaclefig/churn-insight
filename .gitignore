@@ -1,0 +1,24 @@
+cat > .gitignore << 'EOF'
+# Java / Spring Boot
+backend/springboot-app/target/
+backend/springboot-app/.mvn/
+*.class
+*.jar
+
+# Node / Frontend
+frontend/web-app/node_modules/
+frontend/web-app/dist/
+frontend/web-app/.env
+
+# Python / Data Science
+data-science/**/__pycache__/
+data-science/**/.ipynb_checkpoints/
+*.pyc
+.env
+
+# IDEs
+.idea/
+.vscode/
+*.iml
+.DS_Store
+EOF
