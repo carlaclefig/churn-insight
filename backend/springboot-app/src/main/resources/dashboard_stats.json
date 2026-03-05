@@ -1,0 +1,124 @@
+{
+  "kpis": {
+    "total_customers": 64374,
+    "churn": 47.4,
+    "no_churn": 52.6
+  },
+  "churn_vs_retained": {
+    "churned": 30493,
+    "retained": 33881
+  },
+  "risk_distribution": {
+    "Bajo": 30177,
+    "Medio": 3788,
+    "Alto": 30409
+  },
+  "monthly_trend": [
+    {
+      "month_bucket": "Jul",
+      "churn_pct": 34.8,
+      "retained_pct": 65.2
+    },
+    {
+      "month_bucket": "Aug",
+      "churn_pct": 30.0,
+      "retained_pct": 70.0
+    },
+    {
+      "month_bucket": "Sep",
+      "churn_pct": 28.4,
+      "retained_pct": 71.6
+    },
+    {
+      "month_bucket": "Oct",
+      "churn_pct": 28.3,
+      "retained_pct": 71.7
+    },
+    {
+      "month_bucket": "Nov",
+      "churn_pct": 41.3,
+      "retained_pct": 58.7
+    },
+    {
+      "month_bucket": "Dec",
+      "churn_pct": 56.0,
+      "retained_pct": 44.0
+    },
+    {
+      "month_bucket": "Jan",
+      "churn_pct": 55.6,
+      "retained_pct": 44.4
+    },
+    {
+      "month_bucket": "Feb",
+      "churn_pct": 56.3,
+      "retained_pct": 43.7
+    },
+    {
+      "month_bucket": "Mar",
+      "churn_pct": 56.5,
+      "retained_pct": 43.5
+    },
+    {
+      "month_bucket": "Apr",
+      "churn_pct": 56.3,
+      "retained_pct": 43.7
+    },
+    {
+      "month_bucket": "May",
+      "churn_pct": 55.6,
+      "retained_pct": 44.4
+    },
+    {
+      "month_bucket": "Jun",
+      "churn_pct": 55.3,
+      "retained_pct": 44.7
+    }
+  ],
+  "feature_importance": [
+    {
+      "Variable": "Support_Urgency",
+      "Importancia": 0.12572931488391606
+    },
+    {
+      "Variable": "Usage Frequency",
+      "Importancia": 0.11539752879886524
+    },
+    {
+      "Variable": "Tenure",
+      "Importancia": 0.11441208119883693
+    },
+    {
+      "Variable": "Support Calls",
+      "Importancia": 0.11293248085695444
+    },
+    {
+      "Variable": "Monthly_Spend",
+      "Importancia": 0.11245380039977937
+    },
+    {
+      "Variable": "Total Spend",
+      "Importancia": 0.11135332942793372
+    },
+    {
+      "Variable": "Age",
+      "Importancia": 0.09306690381789437
+    },
+    {
+      "Variable": "Gender",
+      "Importancia": 0.07676620758577682
+    },
+    {
+      "Variable": "Last Interaction",
+      "Importancia": 0.06766394212136953
+    },
+    {
+      "Variable": "Contract Length",
+      "Importancia": 0.04690396564558908
+    },
+    {
+      "Variable": "Subscription Type",
+      "Importancia": 0.023320445263084286
+    }
+  ]
+}
