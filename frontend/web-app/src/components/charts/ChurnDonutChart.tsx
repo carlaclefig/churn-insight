@@ -36,7 +36,7 @@ export default function ChurnDonutChart({ churned, retained }: ChurnDonutChartPr
         labels: {
           padding: 20,
           usePointStyle: true,
-          pointStyleWidth: 10,
+          pointStyle: 'circle' as const,
           color: '#6b7280',
           font: { size: 12 },
         },

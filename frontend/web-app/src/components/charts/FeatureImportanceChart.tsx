@@ -48,7 +48,7 @@ export default function FeatureImportanceChart({ data }: FeatureImportanceChartP
     scales: {
       x: {
         min: 0,
-        max: 1,
+        max: 0.13,
         grid: { color: 'rgba(107,114,128,0.1)' },
         ticks: {
           color: '#6b7280',
