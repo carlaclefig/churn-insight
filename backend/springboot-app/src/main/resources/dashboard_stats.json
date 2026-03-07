@@ -1,6 +1,7 @@
 {
   "kpis": {
     "total_customers": 64374,
+    "evaluated_pct": 100.0,
     "churn": 47.4,
     "no_churn": 52.6
   },
