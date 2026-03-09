@@ -30,7 +30,7 @@ build/
 !**/src/test/**/build/
 
 mvnw.cmd
-application.properties
 
 ### VS Code ###
 .vscode/
+src/main/resources/application.properties
