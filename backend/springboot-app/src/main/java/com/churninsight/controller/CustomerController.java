@@ -20,31 +20,30 @@ public class CustomerController {
   private final CustomerService customerService;
   private final RetentionPlanService retentionPlanService;
 
-  // ─── GET /api/customer/{id} ──────────────────────────────
   @GetMapping("/{id}")
   public ResponseEntity<?> getCustomerAnalysis(@PathVariable Long id) {
     try {
       log.info("Request recibido → GET /api/customer/{}", id);
 
-      // 1. Obtener cliente + predicción ONNX
       CustomerResponseDTO response = customerService.getCustomerAnalysis(id);
-
-      // 2. Si riesgo es Medio o Alto → generar planes con LLM
       String nivelRiesgo = response.getAnalisis().getNivelRiesgo();
 
       if ("Medio".equals(nivelRiesgo) || "Alto".equals(nivelRiesgo)) {
-        log.info("Riesgo {} detectado → generando planes de retención...",
-            nivelRiesgo);
+        log.info("Riesgo {} detectado → generando planes de retención...", nivelRiesgo);
 
-        List<RetentionPlanDTO> planes = retentionPlanService.generatePlans(response.getCliente(),
-            response.getAnalisis());
+        try {
+          List<RetentionPlanDTO> planes = retentionPlanService
+              .generatePlans(response.getCliente(), response.getAnalisis());
+          response.setPlanesRetencion(planes);
 
-        response.setPlanesRetencion(planes);
+        } catch (Exception e) {
+          log.warn("⚠️ LLM no disponible para cliente ID {}: {}", id, e.getMessage());
+          response.setPlanesRetencion(null);
+          response.setMensaje("En este momento no se puede generar un plan de retención.");
+        }
       }
 
-      log.info("✅ Respuesta lista → Cliente ID: {}, Riesgo: {}",
-          id, nivelRiesgo);
-
+      log.info("✅ Respuesta lista → Cliente ID: {}, Riesgo: {}", id, nivelRiesgo);
       return ResponseEntity.ok(response);
 
     } catch (RuntimeException e) {

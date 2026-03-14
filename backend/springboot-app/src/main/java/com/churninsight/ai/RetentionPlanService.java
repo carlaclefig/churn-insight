@@ -95,7 +95,7 @@ public class RetentionPlanService {
         - Sé específico y accionable, no genérico
         - La prioridad debe ser: Alta, Media o Baja
 
-        Responde ÚNICAMENTE con un JSON válido, sin texto adicional, sin markdown:
+        Responde ÚNICAMENTE con un JSON válido, sin texto adicional, sin markdown, sin tildes ni acentos:
         [
           {
             "titulo": "...",
