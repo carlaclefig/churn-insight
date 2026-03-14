@@ -72,7 +72,6 @@ export default function CustomerDetail() {
   if (!data) return null;
 
   const nivelRiesgo = data.analisis.nivelRiesgo;
-  const showPlans   = nivelRiesgo === 'Medio' || nivelRiesgo === 'Alto';
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -108,13 +107,24 @@ export default function CustomerDetail() {
       </div>
 
       {/* ─── Planes de retención (solo Medio y Alto) ─────── */}
-      {showPlans && data.planesRetencion && (
-        <RetentionPlans
-          planes={data.planesRetencion}
-          nivelRiesgo={nivelRiesgo as 'Medio' | 'Alto'}
-        />
+      {(nivelRiesgo === 'Medio' || nivelRiesgo === 'Alto') && (
+        <>
+          {data.planesRetencion && data.planesRetencion.length > 0 ? (
+            <RetentionPlans
+              planes={data.planesRetencion}
+              nivelRiesgo={nivelRiesgo as 'Medio' | 'Alto'}
+            />
+          ) : (
+            <div className="mt-6 p-5 bg-yellow-50 dark:bg-yellow-900/20
+                            border border-yellow-200 dark:border-yellow-800
+                            rounded-2xl">
+              <p className="text-sm text-yellow-700 dark:text-yellow-400">
+                ⚠️ {data.mensaje ?? 'En este momento no se puede generar un plan de retención.'}
+              </p>
+            </div>
+          )}
+        </>
       )}
-
     </div>
   );
 }
