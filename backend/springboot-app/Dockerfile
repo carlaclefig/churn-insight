@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests -B
 
 # ─── Etapa 2: Imagen liviana para correr ────────────────────
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:17-jre-jammy
 
 WORKDIR /app
 
