@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# Churn Insight – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interfaz de usuario construida con React, TypeScript y Tailwind CSS para visualizar predicciones de churn y planes de retención.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18 + TypeScript
+- Tailwind CSS 3
+- Chart.js + react-chartjs-2
+- React Router v6
+- Vite + SWC
 
-## React Compiler
-
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estructura
+```
+src/
+├── pages/          → Home, CustomerDetail, Dashboard
+├── components/
+│   ├── ui/         → Navbar, RiskBadge, LoadingSpinner, icons
+│   ├── charts/     → 4 gráficos del dashboard
+│   └── customer/   → CustomerCard, AnalysisCard, RetentionPlans
+├── hooks/          → useTheme (dark/light mode)
+├── services/       → api.ts (fetch al backend)
+└── types/          → interfaces TypeScript
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Páginas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Ruta | Descripción |
+|---|---|
+| `/` | Buscador de clientes por ID |
+| `/customer/:id` | Detalle del cliente + análisis + planes |
+| `/dashboard` | Analytics con 4 gráficos |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Correr localmente
+```bash
+npm install
+npm run dev
 ```
+
+## Correr con Docker
+```bash
+docker-compose up --build frontend
+```
+
+## Variables de entorno
+
+Crea un archivo `.env` en la raíz del proyecto:
+```
+VITE_API_URL=http://localhost:8080
+```
+
+## Dark Mode
+
+El tema se persiste en `localStorage` con la key `churn-theme`.
