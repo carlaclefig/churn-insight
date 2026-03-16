@@ -20,13 +20,13 @@ import java.util.Map;
 @Service
 public class RetentionPlanService {
 
-  @Value("${app.anthropic.api-key}")
+  @Value("${app.anthropic.api-key:}")
   private String apiKey;
 
-  @Value("${app.anthropic.model}")
+  @Value("${app.anthropic.model:claude-sonnet-4-20250514}")
   private String model;
 
-  @Value("${app.anthropic.max-tokens}")
+  @Value("${app.anthropic.max-tokens:1500}")
   private int maxTokens;
 
   private final HttpClient httpClient = HttpClient.newHttpClient();

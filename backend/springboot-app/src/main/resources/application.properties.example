@@ -10,7 +10,7 @@ app.csv.data-path=customer_churn_dataset.csv
 app.dashboard.stats-path=dashboard_stats.json
 
 # ─── LLM (Claude - lo usaremos en fase posterior) ───────
-app.anthropic.api-key=${ANTHROPIC_API_KEY:YOUR_API_KEY_HERE}
+app.anthropic.api-key=${ANTHROPIC_API_KEY:}
 app.anthropic.model=claude-sonnet-4-20250514
 app.anthropic.max-tokens=1500
 
