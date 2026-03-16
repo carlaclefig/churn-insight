@@ -19,7 +19,7 @@ import java.util.Collections;
 @Service
 public class OnnxPredictionService {
 
-  @Value("${app.onnx.model-path}")
+  @Value("${app.onnx.model-path:modelo_churn_final.onnx}")
   private String modelPath;
 
   private OrtEnvironment environment;

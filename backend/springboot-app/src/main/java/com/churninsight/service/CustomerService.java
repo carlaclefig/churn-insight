@@ -22,7 +22,7 @@ public class CustomerService {
 
   private final OnnxPredictionService onnxPredictionService;
 
-  @Value("${app.csv.data-path}")
+  @Value("${app.csv.data-path:customer_churn_dataset.csv}")
   private String csvPath;
 
   // ─── Mapa en memoria: CustomerID → Customer ──────────────

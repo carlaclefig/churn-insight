@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 public class DashboardService {
 
-  @Value("${app.dashboard.stats-path}")
+  @Value("${app.dashboard.stats-path:dashboard_stats.json}")
   private String statsPath;
 
   private final ObjectMapper objectMapper = new ObjectMapper();
