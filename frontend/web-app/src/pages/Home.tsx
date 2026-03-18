@@ -42,7 +42,7 @@ export default function Home() {
           Churn<span className="text-blue-600">Insight</span>
         </h1>
         <p className="text-lg text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-          Predice el riesgo de abandono de tus clientes con inteligencia artificial.
+          Predice el abandono de clientes y genera estrategias de retención personalizadas con IA.
         </p>
       </div>
 
